@@ -1,30 +1,26 @@
-#[cfg(test)]
-mod hackerrank;
-
 // main.rs
 
 fn main() {
-    mutability_example();
-    shadowing_example();
-    destructuring_example();
+    // Приклад змінної, яку можна змінювати
+    let mut score = 70;
+    println!("Початковий бал: {}", score);
+
+    // Змінюємо бал
+    score += 5;
+    println!("Після бонусу: {}", score);
+
+    // Shadowing — перевизначаємо змінну
+    let score = score * 2;
+    println!("Подвоєний бал: {}", score);
+
+    // Destructuring — розпаковка кортежу
+    let (passed, failed) = calculate_results(score);
+    println!("Passed: {}, Failed: {}", passed, failed);
 }
 
-// 🔹 Розділ 3 — Mutability
-fn mutability_example() {
-    let mut x = 5;
-    x = 6;
-    println!("Mutability: x = {}", x);
-}
-
-// 🔹 Розділ 4 — Shadowing
-fn shadowing_example() {
-    let x = 5;
-    let x = x + 1; // shadowing — перевизначення змінної
-    println!("Shadowing: x = {}", x);
-}
-
-// 🔹 Розділ 6 — Destructuring
-fn destructuring_example() {
-    let (a, b) = (1, 2); // розпаковка tuple
-    println!("Destructuring: a = {}, b = {}", a, b);
+// Функція для демонстрації destructuring
+fn calculate_results(total: i32) -> (i32, i32) {
+    let passed = total / 10;
+    let failed = 10 - passed;
+    (passed, failed)
 }

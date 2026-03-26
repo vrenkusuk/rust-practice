@@ -7,3 +7,7 @@ mod task07;
 mod task08;
 mod task09;
 mod task10;
+pub mod task0;
+pub mod task3;
+pub mod task4;
+pub mod task5;
